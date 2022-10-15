@@ -1,0 +1,24 @@
+{% extends 'web_app/base.html' %}
+
+{% block title-head %}
+        <title>Add Person and Pet</title>
+    {% endblock %}
+
+{% block title %}
+<h3 class="h3">
+Add Person and Pet
+</h3>
+{% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'add-perosn' %}">
+{% for f in form_add_person_obj %}
+    <div class="form-row">
+       {{ f }}
+    </div>
+   {% endfor %}
+    <button>Add Person</button>
+        {% csrf_token %}
+    </form>
+
+{% endblock %}
