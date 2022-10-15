@@ -2,7 +2,7 @@ from django import forms
 
 from web.models import Pet
 
-
+# TODO ---------Only look this piece of code------------
 class AddPersonForm(forms.Form):
     MAX_LENGTH = 20
     MIN_LENGTH = 3
@@ -35,15 +35,19 @@ class AddPersonForm(forms.Form):
         }),
     )
 
-    # TODO Aqui debo de arreglar que funcione
-    # person_pet = forms.ModelMultipleChoiceField(
-    #     label="Person's pet",
-    #     required=False,
-    #     queryset= Pet.objects.all(),
-    #     widget=forms.CheckboxSelectMultiple
-    # )
+    # TODO ---------- This field doesn't work -----------
+    person_pet = forms.ModelMultipleChoiceField(
+        label="Person's pet",
+        required=False,
+        queryset= Pet.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+    )
 
 
+
+
+
+# TODO --------- From hear to down es the Doncho code -----
 class PersonForm(forms.Form):
     OCCUPANCIES = (
         (1, 'Child'),
